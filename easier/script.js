@@ -33,9 +33,10 @@ WARNING!!! WARNING!!!
 // Wrap the entire contents of script.js inside of an IIFE
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
-(function () {
+(function (window) {
 
-var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+var names = ["Yaakov", "John", "Jen", "Jason", 
+"Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
 // STEP 10: (NOTHING TO DO. ALREADY DONE FOR YOU)
 // Loop over the names array and say either 'Hello' or "Good Bye"
@@ -59,10 +60,12 @@ for (var i = 0; i < names.length; i++) {
   // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
   // name in the loop.
   if (firstLetter === 'j') {
-    byeSpeaker.speak(names[i]);
+    window.byeSpeaker.speak(names[i]);
   } else {
-    helloSpeaker.speak(names[i]);
+    window.helloSpeaker.speak(names[i]);
   }
 }
 
-})();
+})(window);
+
+
